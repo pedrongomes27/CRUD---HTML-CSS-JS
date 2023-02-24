@@ -1,0 +1,51 @@
+#title{
+    display: flex;
+    justify-content: center;
+
+}
+
+.container-new{
+    background-color: #17181F;
+    width: 1000px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+.container-data{
+    background-color: #20212C;
+    width: 1000px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+body {
+    font-family: sans-serif;
+    color: white;
+    background-color: #15161D;
+    margin: 0 50px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+}
+
+.form{
+    margin-top: 20px;
+}
+
+.form-content{
+
+    margin-bottom: 15px;
+    background-color: #20212C;
+    border: #20212C;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+input::placeholder, textarea::placeholder {
+    font-family: sans-serif;
+    color: white;
+  }

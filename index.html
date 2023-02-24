@@ -4,32 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD - HTML,CSS,JS</title>
+    <!-- Add responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
     <div class="app">
-        <h1 id="title">
+        <h1 id="title-page">
             Toodu
         </h1>
+        <!-- Set Common padding and border-radius for both containers -->
         <div class="container-new">
             <div class="title">
                 Nova Task
             </div>
-            <div class="form">
-                <input type="text" placeholder="Digite aqui o título..." class="form-content" name="" id="textInput" size="40"/>
-                <input type="date" class="form-content" name="" id="dateInput" placeholder="Data prazo" size="30"/>
-                </br>
-                <textarea name="" class="form-content" id="textarea" cols="60" rows="5" placeholder="Digite aqui a descrição..."></textarea>
+            <form>
+                <!-- TITULO -->
+                <input type="text" placeholder="Digite aqui o título..." class="form-content" id="title" size="40" required/>
+                
+                <!-- PRIORIDADE -->
+                <select id="priority" class="form-content" required>
+                    <option value="">Prioridade...</option>
+                    <option value="high">Alta</option>
+                    <option value="medium">Media</option>
+                    <option value="low">Baixa</option>
 
-            </div>
+                  </select>
+                <!-- DATA -->
+                <input type="date" class="form-content" id="due-date" required/>
+                </br>
+
+                <!-- DESCRICAO -->
+                <textarea class="form-content" id="description" rows="5" placeholder="Digite aqui a descrição..." required></textarea>
+
+                <!-- BOTAO -->
+                <button type="button" id="add-button">
+                    <span>
+                        <img src="sinal-de-mais.png" alt="" width="20px" style="vertical-align: middle">
+                    </span>
+                    Adicionar task
+                </button>
+
+            </form>
         </div>
+
         <div class="container-data">
-            
+            <ul id="list"></ul> 
         </div>
-    </div>
+    </div>  
+
+    <script src="script.js"></script>
+ 
 </body>
 
 </html>

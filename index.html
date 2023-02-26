@@ -11,49 +11,49 @@
 </head>
 
 <body>
-    <div class="app">
-        <h1 id="title-page">
-            Toodu
-        </h1>
-        <!-- Set Common padding and border-radius for both containers -->
-        <div class="container-new">
-            <div class="title">
-                Nova Task
-            </div>
-            <form>
+    <h1 id="title-page"> Toodu </h1>
+
+    <div class="container">
+
+        <h2 id="title-form">Nova Task</h2> 
+
+        <form >
+
+            <div class="column">
+
                 <!-- TITULO -->
-                <input type="text" placeholder="Digite aqui o título..." class="form-content" id="title" size="40" required/>
+                <input class="form-content" type="text" placeholder="Digite aqui o título..." id="title"/>
                 
                 <!-- PRIORIDADE -->
-                <select id="priority" class="form-content" required>
-                    <option value="">Prioridade...</option>
-                    <option value="high">Alta</option>
-                    <option value="medium">Media</option>
-                    <option value="low">Baixa</option>
+                <select id="priority" class="form-content">
+                    <option value="">Prioridade</option>
+                    <option value="Alto">Alta</option>
+                    <option value="Medio">Media</option>
+                    <option value="Baixo">Baixa</option>
 
-                  </select>
+                </select>
                 <!-- DATA -->
-                <input type="date" class="form-content" id="due-date" required/>
+                <input type="date" class="form-content" id="due-date"/>
                 </br>
+            </div>
 
-                <!-- DESCRICAO -->
-                <textarea class="form-content" id="description" rows="5" placeholder="Digite aqui a descrição..." required></textarea>
+            <!-- DESCRICAO -->
+            <textarea class="form-content" id="description" rows="5" placeholder="Digite aqui a descrição..."></textarea>
 
-                <!-- BOTAO -->
-                <button type="button" id="add-button">
-                    <span>
-                        <img src="sinal-de-mais.png" alt="" width="20px" style="vertical-align: middle">
-                    </span>
-                    Adicionar task
-                </button>
+            <!-- BOTAO -->
+            <button type="button" id="add-button">
+                <span>+</span>
+                <div>Adicionar task</div> 
+            </button>
+            <button id="save-button" class="save-button" style="display: none;">Salvar</button>
 
-            </form>
-        </div>
+        </form>
+    </div>
 
-        <div class="container-data">
-            <ul id="list"></ul> 
-        </div>
-    </div>  
+    <div class="container">
+        <ul id="list"></ul> 
+    </div>
+
 
     <script src="script.js"></script>
  

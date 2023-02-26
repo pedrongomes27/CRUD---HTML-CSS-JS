@@ -1,87 +1,217 @@
-#title-page{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#title-page {
+    font-size: 40px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+body {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: #15161D;
+    gap: 20px;
 }
 
-.container-new{
-    background-color: #17181F;
+#title-form {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #fff;
+}
+
+.container {
+    position: relative;
+    max-width: 900px;
     width: 100%;
-    height: 100%;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 40px;
+    background: #17181F;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 40px 0px #0000004D;
 }
-.container-data{
+
+.column {
+    display: flex;
+
+}
+
+/* .container-data {
     background-color: #20212C;
     width: 100%;
     height: 100%;
     min-height: 200px;
     padding: 15px;
     border-radius: 5px;
-    margin-bottom: 50p;
-}
-
-body {
-    font-family: sans-serif;
-    color: white;
-    background-color: #15161D;
-    margin: 0 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 50px;
-}
+    margin-bottom: 5px;
+} */
 
 
-.app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-form{
+form {
     margin-top: 20px;
     display: inline;
 }
 
-.form-content{
-    margin-bottom: 6px;
-    background-color: #20212C;
-    border: #20212C;
-    border-radius: 5px;
+.form-content {
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #20212C;
+
+}
+
+.form-content + .form-content {
+    margin-left: 15px;
+}
+
+#title  {
+    width: 50%;
+    padding: 15px;
+    
+}
+
+
+#priority  {
+    width: 25%;
+    padding: 15px;
+    
+}
+
+#due-date {
+    width: 25%;
+    padding: 15px;
+}
+
+#description {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px 15px;
+    resize: none;
+    height: auto;
+}
+
+:focus{
+    border: 1px solid #4b4b4b;
+}
+
+::placeholder{
     color: white;
-    padding: 10px;
 }
 
-input::placeholder, textarea::placeholder, input, textarea {
-    font-family: sans-serif;
-    color: white;
-    width: 97%;
-  }
-
-#title{
-    width: 54%;
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
-#due-date{
-    width: 18%;
-    padding: 9px;
-}
-
-#priority{
-    width: 20%;
-    padding: 9px;
-
-}
-
-button{
-    border-color: #353750;
-    border: solid 1px #353750;;
-    border-radius: 5px;
-    background-color: transparent;
+#add-button {
+    border: 2px solid #292A35;
+    border-radius: 10px;
+    background: none;
     color: white;
     cursor: pointer;
-    padding: 7px;
+    margin-top: 8px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+
+
+}
+
+#add-button span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+
+    background: #F93674;
+    border-radius: 8px;
+
+}
+
+#save-button {
+    border: 2px solid #292A35;
+    border-radius: 10px;
+    background: none;
+    color: #F93674;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 10px 20px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+
+
+}
+
+#list{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    background: #20212C;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
     
+}
+
+.priority-Alto {
+    color: #E15E36;
+  }
+
+  .priority-Medio {
+    color: #E9E236;
+  }
+
+  .priority-Baixo {
+    color: #33B5CA;
+  }
+
+button{
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+p{
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+}
+
+button[class="edit-button"]{
+    background-color: #FFF7B4;
+}
+
+button[class="delete-button"]{
+    background-color: #FF6868;
 }

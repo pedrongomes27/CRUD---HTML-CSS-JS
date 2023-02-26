@@ -45,7 +45,6 @@ body {
 
 .column {
     display: flex;
-
 }
 
 /* .container-data {
@@ -168,7 +167,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 }
 
-#list{
+ul#list{
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -179,7 +178,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 10px;
     color: #fff;
     font-size: 16px;
-    
+    min-height: 100px;
 }
 
 .priority-Alto {
@@ -199,6 +198,8 @@ button{
     padding: 5px;
     margin-right: 5px;
     cursor: pointer;
+    border: none;
+    background: none;
 }
 
 p{
@@ -208,10 +209,48 @@ p{
     margin-bottom: 5px;
 }
 
-button[class="edit-button"]{
-    background-color: #FFF7B4;
+.task-edit-button{
+    color: #FFF7B4;
 }
 
-button[class="delete-button"]{
-    background-color: #FF6868;
+.task-edit-button img{
+    width: 13px;
+    margin-left: 5px;
+}
+
+
+.task-delete-button{
+    color: #FF6868;
+}
+
+.task-delete-button img{
+    width: 17px;
+    margin-left: 5px;
+}
+
+.task-due-date{
+    padding: 2px;
+    color: #58586D;
+
+}
+
+.task-description{
+    color: #BABABA;
+}
+
+.task-delete-button:hover{
+    filter: drop-shadow(0px 0px 8px #A14949);
+}
+
+.task-edit-button:hover{
+    filter: drop-shadow(0px 0px 8px rgba(255, 245, 162, 0.5));
+}
+
+.inline{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.task-item::marker{
+    display: none;;
 }

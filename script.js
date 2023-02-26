@@ -114,43 +114,60 @@ function renderList() {
         // Cria elementos HTML para exibir as informações do item
         const h2 = document.createElement('h2');
         h2.innerText = item.title;
+        h2.classList.add('task-title');
+        h2.classList.add('inline');
 
         const pDescription = document.createElement('p');
         pDescription.innerText = item.description;
+        pDescription.classList.add('task-description');
 
         const pPriority = document.createElement('p');
-        pPriority.innerText = `Prioridade: ${item.priority}`;
-        pPriority.classList.add(`priority-${item.priority}`);
+        pPriority.innerText = `${item.priority}`;
+        pPriority.classList.add(`task-priority`, `priority-${item.priority}`);
 
         const pDueDate = document.createElement('p');
-        pDueDate.innerText = `Data prazo: ${item.dueDate}`;
+        pDueDate.innerText = `${item.dueDate}`;
+        pDueDate.classList.add('task-due-date');
+        pDueDate.classList.add('inline');
 
         const deleteButton = document.createElement('button');
-        deleteButton.innerText = 'Deletar';
         deleteButton.classList.add('delete-button');
+        const deleteButtonImg = document.createElement('img');
+        deleteButtonImg.src = 'img/delete.png'; // caminho para a imagem
+        deleteButton.innerText = 'Deletar';
+        deleteButton.appendChild(deleteButtonImg);
+        deleteButton.classList.add(`task-delete-button`);
+
         // Adiciona um ouvinte de eventos de clique ao botão "Delete"
         deleteButton.addEventListener('click', () => deleteItem(index));
 
         const editButton = document.createElement('button');
-        editButton.innerText = 'Editar';
         editButton.classList.add('edit-button');
+        const editButtonImg = document.createElement('img');
+        editButtonImg.src = 'img/edit.png'; // caminho para a imagem
+        editButton.innerText = 'Editar';
+        editButton.appendChild(editButtonImg);
+        editButton.classList.add('edit-button');
+        editButton.classList.add(`task-edit-button`);
+
         // Adiciona um ouvinte de eventos de clique ao botão "Edit"
         editButton.addEventListener('click', () => editItem(index));
 
         // Cria um elemento HTML <li> para exibir o item na lista
         const li = document.createElement('li');
-        li.appendChild(h2);
-        li.appendChild(pDescription);
         li.appendChild(pPriority);
+        li.appendChild(h2);
         li.appendChild(pDueDate);
+        li.appendChild(pDescription);
         li.appendChild(editButton);
         li.appendChild(deleteButton);
+        li.classList.add(`task-item`);
 
         // Adiciona o elemento HTML <li> à lista de tarefas
         list.appendChild(li);
-
     });
 }
+
 
 // Salvar a lista de tarefas atual no armazenamento local do navegador
 function saveList() {

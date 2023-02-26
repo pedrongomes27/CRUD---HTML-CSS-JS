@@ -1,0 +1,142 @@
+/* estilo para a lista */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* estilo para cada item da lista */
+li {
+  border-radius: 5px;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  background: #20212c;
+}
+
+.div-js {
+  display: flex;
+  column-gap: 15px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f93674;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* estilo para o título do item */
+.task-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* estilo para a data de vencimento do item */
+.task-due-date {
+  color: #58586d;
+  margin: 0px;
+}
+
+.priority-Alta, .priority-Media, .priority-Baixa {
+  padding: 2px 3px;
+  border-radius: 3px;
+}
+
+.priority-null {
+  padding: 2px 3px;
+  border-radius: 3px;
+}
+
+input.priority-Alta[type="checkbox"] {
+  border-color: #e15e36;
+}
+
+input.priority-Media[type="checkbox"] {
+  border-color: #e9e236;
+}
+
+input.priority-Baixa[type="checkbox"] {
+  border-color: #33b5ca;
+}
+input.priority-null[type="checkbox"] {
+  border-color: #fff;
+}
+
+input.priority-Alta[type="checkbox"]:checked {
+    background-color: #e15e36;
+}
+
+input.priority-null[type="checkbox"]:checked {
+    background-color: #fff;
+}
+  
+  input.priority-Media[type="checkbox"]:checked {
+    background-color: #e9e236;
+}
+  
+  input.priority-Baixa[type="checkbox"]:checked {
+    background-color: #33b5ca;
+}
+
+/* estilo para a descrição do item */
+.task-description {
+  color: #bababa;
+  margin-bottom: 5px;
+}
+
+/* estilo para o botão de exclusão do item */
+.option-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.option-button img {
+  width: 25%;
+  height: auto;
+}
+
+span {
+  font-size: 15px;
+  color: #ff6868;
+}
+
+.option-button {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+#editButton span {
+  color: #fff7b4;
+}
+
+#deleteButton span {
+  color: #ff6868;
+}
+#editButton img {
+  margin-right: 5px;
+}
+
+#deleteButton img {
+  width: 24px;
+}
+
+#deleteButton:hover {
+  filter: drop-shadow(0px 0px 9px #fd2525);
+}
+
+#editButton:hover {
+  filter: drop-shadow(0px 0px 9px #fff7b4);
+}

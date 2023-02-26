@@ -34,6 +34,8 @@ addButton.addEventListener('click', () => {
         document.getElementById('description').value = '';
         document.getElementById('priority').value = '';
         document.getElementById('due-date').value = '';
+
+        location.reload();
     } else {
         // Exibe uma mensagem de erro ou destaca o campo de título para o usuário
         alert('Por favor insira um título');
@@ -71,6 +73,8 @@ saveButton.addEventListener('click', () => {
 
         // Renderiza a lista atualizada
         renderList();
+
+        location.reload();
     } else {
         // Exibe uma mensagem de erro ou destaca o campo de título para o usuário
         alert('Por favor insira um título');
@@ -85,6 +89,8 @@ function addItem(item) {
 }
 
 function editItem(index) {
+    window.scrollTo(0,0);
+
     const item = todoList[index];
     document.getElementById('title').value = item.title;
     document.getElementById('description').value = item.description;
@@ -112,57 +118,86 @@ function renderList() {
     // Itera sobre todos os itens na lista de tarefas
     todoList.forEach((item, index) => {
         // Cria elementos HTML para exibir as informações do item
+        const div = document.createElement('div');
+        div.classList.add('div-js');
+
+        const checkbox = document.createElement('input');
+        checkbox.classList.add('task-checkboxas');
+        checkbox.type = 'checkbox';
+        checkbox.classList.add(`priority-${item.priority}`);
+
+        // Adiciona um ouvinte de eventos de mudança ao checkbox
+        checkbox.addEventListener('change', () => {
+            // Salva o estado do checkbox no localStorage
+            localStorage.setItem(`todoItem-${index}-checked`, checkbox.checked);
+        });
+
+        // Define o estado do checkbox com base no valor armazenado no localStorage
+        const checked = localStorage.getItem(`todoItem-${index}-checked`);
+        checkbox.checked = checked === 'true';
+
         const h2 = document.createElement('h2');
-        h2.innerText = item.title;
         h2.classList.add('task-title');
-        h2.classList.add('inline');
+        h2.innerText = item.title;
+
+        const pDueDate = document.createElement('p');
+        pDueDate.innerText = item.dueDate;
+        pDueDate.classList.add('task-due-date');
+
+        const pPriority = document.createElement('p');
+        // pPriority.innerText = item.priority;
+        pPriority.classList.add('task-priority');
+        pPriority.classList.add(`priority-${item.priority}`);
+        
+
+        div.appendChild(checkbox);
+        div.appendChild(h2);
+        div.appendChild(pDueDate);
+        div.appendChild(pPriority);
 
         const pDescription = document.createElement('p');
         pDescription.innerText = item.description;
-        pDescription.classList.add('task-description');
+        pDescription.classList.add('task-description')
 
-        const pPriority = document.createElement('p');
-        pPriority.innerText = `${item.priority}`;
-        pPriority.classList.add(`task-priority`, `priority-${item.priority}`);
-
-        const pDueDate = document.createElement('p');
-        pDueDate.innerText = `${item.dueDate}`;
-        pDueDate.classList.add('task-due-date');
-        pDueDate.classList.add('inline');
+        const divButton = document.createElement('div');
+        divButton.classList.add('div-js');
 
         const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button');
-        const deleteButtonImg = document.createElement('img');
-        deleteButtonImg.src = 'img/delete.png'; // caminho para a imagem
-        deleteButton.innerText = 'Deletar';
-        deleteButton.appendChild(deleteButtonImg);
-        deleteButton.classList.add(`task-delete-button`);
+        deleteButton.classList.add('option-button');
+        deleteButton.id = 'deleteButton';
+        const deleteIcon = document.createElement('img'); deleteIcon.src = 'img/icon-delete.png';
+        const deleteText = document.createElement('span');
+        deleteText.innerText = 'Deletar';
 
-        // Adiciona um ouvinte de eventos de clique ao botão "Delete"
+        deleteButton.appendChild(deleteIcon);
+        deleteButton.appendChild(deleteText);
         deleteButton.addEventListener('click', () => deleteItem(index));
 
+
         const editButton = document.createElement('button');
-        editButton.classList.add('edit-button');
-        const editButtonImg = document.createElement('img');
-        editButtonImg.src = 'img/edit.png'; // caminho para a imagem
-        editButton.innerText = 'Editar';
-        editButton.appendChild(editButtonImg);
-        editButton.classList.add('edit-button');
-        editButton.classList.add(`task-edit-button`);
+        editButton.classList.add('option-button');
+        editButton.id = 'editButton';
+        const editIcon = document.createElement('img'); editIcon.src = 'img/icon-edit.png';
+        const editText = document.createElement('span');
+        editText.innerText = 'Editar';
+
+        editButton.appendChild(editIcon);
+        editButton.appendChild(editText);
 
         // Adiciona um ouvinte de eventos de clique ao botão "Edit"
         editButton.addEventListener('click', () => editItem(index));
 
+        divButton.appendChild(editButton);
+        divButton.appendChild(deleteButton);
+
+
         // Cria um elemento HTML <li> para exibir o item na lista
         const li = document.createElement('li');
-        li.appendChild(pPriority);
-        li.appendChild(h2);
-        li.appendChild(pDueDate);
+        li.appendChild(div);
         li.appendChild(pDescription);
-        li.appendChild(editButton);
-        li.appendChild(deleteButton);
-        li.classList.add(`task-item`);
+        li.appendChild(divButton);
 
+        
         // Adiciona o elemento HTML <li> à lista de tarefas
         list.appendChild(li);
     });

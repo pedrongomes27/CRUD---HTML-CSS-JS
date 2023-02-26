@@ -7,7 +7,8 @@
     <title>CRUD - HTML,CSS,JS</title>
     <!-- Add responsive meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/task-style.css">
 </head>
 
 <body>
@@ -26,10 +27,10 @@
                 
                 <!-- PRIORIDADE -->
                 <select id="priority" class="form-content">
-                    <option value="">Prioridade</option>
-                    <option value="Alto">Alta</option>
-                    <option value="Medio">Media</option>
-                    <option value="Baixo">Baixa</option>
+                    <option value="null" disabled selected>Prioridade</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baixa">Baixa</option>
 
                 </select>
                 <!-- DATA -->
@@ -42,9 +43,9 @@
 
             <!-- BOTAO -->
             <button type="button" id="add-button">
-                <span>+</span>
                 <div>Adicionar task</div> 
             </button>
+            
             <button id="save-button" class="save-button" style="display: none;">Salvar</button>
 
         </form>

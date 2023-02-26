@@ -47,6 +47,12 @@ input[type="checkbox"] {
   margin: 0px;
 }
 
+/* estilo para a descrição do item */
+.task-description {
+  color: #bababa;
+  margin-bottom: 5px;
+}
+
 .priority-Alta, .priority-Media, .priority-Baixa {
   padding: 2px 3px;
   border-radius: 3px;
@@ -88,11 +94,6 @@ input.priority-null[type="checkbox"]:checked {
     background-color: #33b5ca;
 }
 
-/* estilo para a descrição do item */
-.task-description {
-  color: #bababa;
-  margin-bottom: 5px;
-}
 
 /* estilo para o botão de exclusão do item */
 .option-button {
